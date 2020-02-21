@@ -552,7 +552,6 @@ void LoadData(ALCcontext *context, ALbuffer *ALBuf, ALsizei freq, ALuint size,
     ALBuf->LoopEnd = ALBuf->SampleLen;
 }
 
-
 /** Prepares the buffer to use the specified callback, using the specified format. */
 void PrepareCallback(ALCcontext *context, ALbuffer *ALBuf, ALsizei freq,
     UserFmtChannels SrcChannels, UserFmtType SrcType, LPALBUFFERCALLBACKTYPESOFT callback,
