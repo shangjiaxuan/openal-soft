@@ -64,6 +64,7 @@ ALuint ChannelsFromFmt(FmtChannels chans) noexcept;
 inline ALuint FrameSizeFromFmt(FmtChannels chans, FmtType type) noexcept
 { return ChannelsFromFmt(chans) * BytesFromFmt(type); }
 
+
 struct ALbuffer {
     al::vector<al::byte,16> mData;
 
@@ -103,7 +104,6 @@ struct ALbuffer {
     inline ALuint bytesFromFmt() const noexcept { return BytesFromFmt(mFmtType); }
     inline ALuint channelsFromFmt() const noexcept { return ChannelsFromFmt(mFmtChannels); }
     inline ALuint frameSizeFromFmt() const noexcept { return channelsFromFmt() * bytesFromFmt(); }
-
 };
 
 #endif

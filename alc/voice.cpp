@@ -688,7 +688,7 @@ void ALvoice::mix(const State vstate, ALCcontext *Context, const ALuint SamplesT
              * what we can from the buffer queue.
              */
             auto srciter = std::copy_n(chandata.mPrevSamples.begin(), MAX_RESAMPLER_PADDING >> 1,
-                    SrcData.begin());
+                SrcData.begin());
 
             if UNLIKELY(!BufferListItem)
                 srciter = std::copy(chandata.mPrevSamples.begin()+(MAX_RESAMPLER_PADDING>>1),
@@ -703,7 +703,6 @@ void ALvoice::mix(const State vstate, ALCcontext *Context, const ALuint SamplesT
                 srciter = LoadBufferQueue(BufferListItem, BufferLoopItem, NumChannels,
                     SampleSize, chan, DataPosInt, {srciter, SrcData.end()});
 
-			bool source_finished = false;
             if UNLIKELY(srciter != SrcData.end())
             {
                 /* If the source buffer wasn't filled, copy the last sample for
@@ -808,9 +807,11 @@ void ALvoice::mix(const State vstate, ALCcontext *Context, const ALuint SamplesT
                     DataPosInt = ((DataPosInt-LoopStart)%(LoopEnd-LoopStart)) + LoopStart;
                 }
             }
-            else {
+            else 
+            {
                 /* Handle non-looping static source */
-                if (DataPosInt >= BufferListItem->mSampleLen) {
+                if (DataPosInt >= BufferListItem->mSampleLen)
+                {
                     BufferListItem = nullptr;
                     break;
                 }

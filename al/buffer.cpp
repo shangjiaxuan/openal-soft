@@ -552,7 +552,7 @@ void LoadData(ALCcontext *context, ALbuffer *ALBuf, ALsizei freq, ALuint size,
     ALBuf->LoopEnd = ALBuf->SampleLen;
 }
 
-//=======
+
 /** Prepares the buffer to use the specified callback, using the specified format. */
 void PrepareCallback(ALCcontext *context, ALbuffer *ALBuf, ALsizei freq,
     UserFmtChannels SrcChannels, UserFmtType SrcType, LPALBUFFERCALLBACKTYPESOFT callback,
@@ -616,7 +616,6 @@ void PrepareCallback(ALCcontext *context, ALbuffer *ALBuf, ALsizei freq,
 }
 
 
-//>>>>>>> pr/3
 struct DecompResult { UserFmtChannels channels; UserFmtType type; };
 al::optional<DecompResult> DecomposeUserFormat(ALenum format)
 {
@@ -835,7 +834,6 @@ START_API_FUNC
     }
 }
 END_API_FUNC
-
 
 AL_API void* AL_APIENTRY alMapBufferSOFT(ALuint buffer, ALsizei offset, ALsizei length, ALbitfieldSOFT access)
 START_API_FUNC
@@ -1473,6 +1471,7 @@ START_API_FUNC
     }
 }
 END_API_FUNC
+
 
 AL_API void AL_APIENTRY alBufferCallbackSOFT(ALuint buffer, ALenum format, ALsizei freq,
     LPALBUFFERCALLBACKTYPESOFT callback, ALvoid *userptr, ALbitfieldSOFT flags)
